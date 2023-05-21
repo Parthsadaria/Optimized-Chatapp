@@ -18,7 +18,9 @@ Overall, this project provides an excellent example of how to create a real-time
 **backend:** agora.io
 
 ## 🔴 Video tutorial!
+
 Project Demo :- https://youtu.be/ulkw0Pig8TQ
+
 <img src="https://github.com/AdityaWadkar/chatapp/assets/67093170/53053946-ef04-40a1-bc2c-909ef6027755">
 
 ## Authors
