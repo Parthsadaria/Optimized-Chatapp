@@ -71,7 +71,7 @@
 }
 
 #avatar__selection {
-  margin-reight: 10px;
+  margin-right: 10px;
   display: flex;
   gap: 1em;
 }
@@ -87,4 +87,50 @@
 
 .avatar__option__selected {
   border: 3px solid #845695;
+}
+#lobby__form button {
+  background-color: #845695;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#lobby__form button:hover {
+  background-color: #940bd3;
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+#lobby__form input[type="text"] {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #845695, #6e4482);
+  border-image-slice: 1;
+  padding: 8px;
+  transition: border-color 0.3s ease;
+}
+
+#lobby__form input[type="text"]:focus {
+  outline: none;
+  border-color: #845695;
+}
+/* Update the styles for the form container in styles/main.css */
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #ffffff;
+  }
+ 50% {
+  border-color:#ac00eb;
+ }
+  100% {
+    border-color: #ffffff;
+  }
+}
+
+#form__container {
+  border: 5px solid;
+  animation: borderAnimation 4s linear infinite;
+  padding: 10px;
 }
