@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby - Parth Sadaria</title>
+    <link rel="stylesheet" type="text/css" href="styles/lobby.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: url('background.jpg') center/cover no-repeat;
+        }
+
+        #lobby-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #info-container {
+            background-color: #845695;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #instagram-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        #toggle-button {
+            background-color: #6e4482;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #toggle-button:hover {
+            background-color: #845695;
+        }
+
+        #number-game {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #guess-input {
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #guess-button {
+            margin-top: 10px;
+            background-color: #6e4482;
+            color: #fff;
+            padding: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #guess-button:hover {
+            background-color: #845695;
+        }
+
+        #quote-section {
+            margin-top: 30px;
+        }
+
+        #quote {
+            font-style: italic;
+            font-size: 18px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lobby-container">
+        <div id="info-container">
+            <h1>Parth Sadaria</h1>
+            <p>Badass Developer</p>
+            <a href="https://www.instagram.com/parth_sadaria/" target="_blank" id="instagram-link">
+                Follow me on Instagram
+            </a>
+            <button id="toggle-button" onclick="toggleAnimation()">Toggle Animation</button>
+
+            <div id="number-game">
+                <h2>Guess the Number Game</h2>
+                <p>Try to guess a number between 1 and 10:</p>
+                <input type="number" id="guess-input" placeholder="Enter your guess" />
+                <button id="guess-button" onclick="guessNumber()">Submit Guess</button>
+                <p id="guess-result"></p>
+            </div>
+
+            <div id="quote-section">
+                <h2>Inspiring Quote</h2>
+                <p id="quote">"The only limit to our realization of tomorrow will be our doubts of today." - Franklin D. Roosevelt</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let clickCount = 0;
+    let animationRunning = true;
+
+    function toggleAnimation() {
+        const infoContainer = document.getElementById('info-container');
+        const clickCountElement = document.getElementById('click-count');
+
+        clickCount++;
+        clickCountElement.textContent = clickCount;
+
+        if (!animationRunning) {
+            infoContainer.style.animation = 'badassAnimation 5s infinite alternate';
+            animationRunning = true;
+        } else {
+            infoContainer.style.animation = 'none';
+            animationRunning = false;
+        }
+
+        // Change background color on every click
+        const randomColor = getRandomColor();
+        infoContainer.style.backgroundColor = randomColor;
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+        function guessNumber() {
+            const guessInput = document.getElementById('guess-input');
+            const guessResult = document.getElementById('guess-result');
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+            const userGuess = parseInt(guessInput.value);
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
+                guessResult.textContent = 'Please enter a valid number between 1 and 10.';
+            } else {
+                if (userGuess === randomNumber) {
+                    guessResult.textContent = 'Congratulations! You guessed the correct number!';
+                } else {
+                    guessResult.textContent = `Sorry, the correct number was ${randomNumber}. Try again!`;
+                }
+            }
+
+            guessInput.value = '';
+        }
+    </script>
+
+</body>
+</html>
