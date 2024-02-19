@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -27,10 +29,9 @@
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #fff;
-
-  font-size: 14px;
+  background-color: #1f1d1d;
+  color: #ffffff;
+  font-size: 15px;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -125,14 +126,15 @@ a {
 #create__room__btn {
   display: block;
   background-color: #845695;
-  padding: 8px 24px;
+  padding: 14px 24px;
   font-size: 14px;
   font-weight: 500;
   border-radius: 5px;
 }
 
 #create__room__btn:hover {
-  background-color: #845695;
+  background-color: #9d00d6;
+padding: 16px 26px ;
 }
 
 .nav--list {
@@ -184,4 +186,38 @@ a {
   #create__room__btn:hover {
     background-color: transparent;
   }
+ /* Add this CSS code to styles/main.css */
+
+/* Button styling */
+#lobby__form button {
+  background-color: #845695;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#lobby__form button:hover {
+  background-color: #6e4482;
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+
+/* Navigation link styling */
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 1px;
+}
+
+.nav__link:hover {
+  color: rgb(230, 228, 228);
+  text-decoration: none;
+  border-color: #845695;
+}
+
 }
